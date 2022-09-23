@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-o*5=6g!29^58v##f@2@h)z4bag(3%%3_a%rp3$hgq$*$m&$+=$
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOW_ALL_ORIGINS =True
 
 # Application definition
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'authApp',    
+    'authApp', 
+    'corsheaders',   
 ]
 
 SIMPLE_JWT = {
@@ -73,8 +74,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
+    
+    
+    
 ROOT_URLCONF = 'authProject.urls'
 
 TEMPLATES = [
@@ -102,10 +113,10 @@ WSGI_APPLICATION = 'authProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8coi5qr259r3c',
-        'USER': 'xxfjkedphtdvxe',
-        'PASSWORD': '6aa7864ca486b797b7f10ce1c1247866d26928c7d953154575ef6e42f692820a',
-        'HOST': 'ec2-18-208-55-135.compute-1.amazonaws.com',
+        'NAME': 'd7s0t5qr0ts5pa',
+        'USER': 'zotltuzsjigdlw',
+        'PASSWORD': '89a2b315909a5418313629ba28c5b97595c66f17469593cdf459c0e9120eee72',
+        'HOST': 'ec2-3-93-206-109.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
